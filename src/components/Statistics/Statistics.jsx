@@ -8,10 +8,10 @@ import {
   Percentage,
 } from './Statistics.styled';
 
-const Statistics = ({ stats }) => {
+const Statistics = ({ title, stats }) => {
   return (
     <Section>
-      <Title>Upload stats</Title>
+     {title && <Title>{title}</Title>} 
 
       <StatList>
         {stats.map(e => (
@@ -33,6 +33,7 @@ const Statistics = ({ stats }) => {
 };
 
 Statistics.propTypes = {
+  title: PropTypes.string,
   stats: PropTypes.arrayOf(
     PropTypes.shape({
       percentage: PropTypes.number.isRequired,
